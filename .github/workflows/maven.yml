@@ -1,0 +1,21 @@
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Крок 1: Checkout репозиторію
+      - uses: actions/checkout@v2
+
+      # Крок 2: Встановлення JDK 17
+      - name: Встановлення JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      # Крок 3: Збірка Maven проєкту
+      - name: Збірка Maven
+        run: mvn clean install
